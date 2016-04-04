@@ -147,31 +147,25 @@
                                         <rect key="frame" x="0.0" y="346" width="600" height="120"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big-gig.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DSf-5a-dhR">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
                                                 </variation>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gAl-Ek-XsR">
-                                                <rect key="frame" x="120" y="0.0" width="120" height="120"/>
+                                                <rect key="frame" x="150" y="0.0" width="150" height="120"/>
                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                     <rect key="frame" x="80" y="0.0" width="80" height="120"/>
                                                 </variation>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parrot.png" translatesAutoresizingMaskIntoConstraints="NO" id="XPm-od-B2h">
-                                                <rect key="frame" x="240" y="0.0" width="120" height="120"/>
+                                                <rect key="frame" x="300" y="0.0" width="150" height="120"/>
                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                     <rect key="frame" x="160" y="0.0" width="80" height="120"/>
                                                 </variation>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="qBf-xP-Rdl">
-                                                <rect key="frame" x="360" y="0.0" width="120" height="120"/>
-                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="240" y="0.0" width="80" height="120"/>
-                                                </variation>
-                                            </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tulip.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Pgq-7H-E0f">
-                                                <rect key="frame" x="480" y="0.0" width="120" height="120"/>
+                                                <rect key="frame" x="450" y="0.0" width="150" height="120"/>
                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                     <rect key="frame" x="320" y="0.0" width="80" height="120"/>
                                                 </variation>
@@ -192,15 +186,21 @@
                                         <rect key="frame" x="0.0" y="474" width="600" height="48"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flowers.png" translatesAutoresizingMaskIntoConstraints="NO" id="SRM-S8-I6S">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="48"/>
                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="168"/>
                                                 </variation>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="peony.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Brs-7U-cr8">
-                                                <rect key="frame" x="300" y="0.0" width="300" height="48"/>
+                                                <rect key="frame" x="200" y="0.0" width="200" height="48"/>
                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                     <rect key="frame" x="200" y="0.0" width="200" height="168"/>
+                                                </variation>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="qBf-xP-Rdl">
+                                                <rect key="frame" x="400" y="0.0" width="200" height="48"/>
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="240" y="0.0" width="80" height="120"/>
                                                 </variation>
                                             </imageView>
                                         </subviews>
