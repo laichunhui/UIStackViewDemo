@@ -9,19 +9,19 @@
 import UIKit
 
 enum StackViewAlignment: String {
-    case Fill, Leading, FirstBaseline, Trailing, LastBaseline // FirstBaseline and LastBaseline are only valid for horizontal stacks.
+    case fill, leading, firstBaseline, trailing, lastBaseline // FirstBaseline and LastBaseline are only valid for horizontal stacks.
 }
 
 enum StackViewDistribution: String {
-    case Fill
+    case fill
     
-    case FillEqually
+    case fillEqually
     
-    case FillProportionally
+    case fillProportionally
     
-    case EqualSpacing
+    case equalSpacing
     
-    case EqualCentering
+    case equalCentering
 }
 
 class PropertiesViewController: UIViewController {
@@ -37,9 +37,9 @@ class PropertiesViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        axisPanel.addTarget(self, action: #selector(PropertiesViewController.didSelectedSegmentedItem(_:)), forControlEvents: .ValueChanged)
+        axisPanel.addTarget(self, action: #selector(PropertiesViewController.didSelectedSegmentedItem(_:)), for: .valueChanged)
         
-        spacingSlider.addTarget(self, action: #selector(PropertiesViewController.spacingValueChanged(_:)), forControlEvents: .ValueChanged)
+        spacingSlider.addTarget(self, action: #selector(PropertiesViewController.spacingValueChanged(_:)), for: .valueChanged)
        
         setupAlimentPanel()
         
@@ -55,19 +55,20 @@ class PropertiesViewController: UIViewController {
             self.currentSelectedAlignmentCell = alimentCell
         }
         
+        
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBar.isHidden = false
     }
     
-    func didSelectedSegmentedItem(sender: UISegmentedControl) {
+    func didSelectedSegmentedItem(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            self.observedView.axis = .Horizontal
+            self.observedView.axis = .horizontal
         case 1:
-            self.observedView.axis = .Vertical
+            self.observedView.axis = .vertical
         default:
             break
         }
@@ -75,67 +76,67 @@ class PropertiesViewController: UIViewController {
         setupAlimentPanel()
     }
     
-    func spacingValueChanged(slider: UISlider) {
+    func spacingValueChanged(_ slider: UISlider) {
         observedView.spacing = CGFloat(slider.value)
     }
     
     
-    private func setupAlimentPanel() {
+    fileprivate func setupAlimentPanel() {
         
         var alimentThemes: [StackViewAlignment]
         
         switch observedView.axis {
-        case .Horizontal:
-            alimentThemes = [StackViewAlignment.Fill, StackViewAlignment.Leading, StackViewAlignment.FirstBaseline, StackViewAlignment.Trailing, StackViewAlignment.LastBaseline]
-        case .Vertical:
-            alimentThemes = [StackViewAlignment.Fill, StackViewAlignment.Leading, StackViewAlignment.Trailing]
+        case .horizontal:
+            alimentThemes = [StackViewAlignment.fill, StackViewAlignment.leading, StackViewAlignment.firstBaseline, StackViewAlignment.trailing, StackViewAlignment.lastBaseline]
+        case .vertical:
+            alimentThemes = [StackViewAlignment.fill, StackViewAlignment.leading, StackViewAlignment.trailing]
         }
         
-        for (index, cell) in alignmentPanel.arrangedSubviews.enumerate() {
+        for (index, cell) in alignmentPanel.arrangedSubviews.enumerated() {
             if cell is StackCell {
                 // control alimentPanel display under diffrent axis condition
                 if index > alimentThemes.count {
-                    cell.hidden = true
+                    cell.isHidden = true
                     continue
                 }
-                cell.hidden = false
+                cell.isHidden = false
                 
                 let cell = cell as! StackCell
                 let alignment = alimentThemes[index-1]
                 cell.theme = alignment.rawValue
     
                 switch  alignment {
-                case .Fill:
+                case .fill:
                     cell.selectedAction = {
                         self.alignmentValueChange(cell)
-                        self.observedView.alignment = .Fill
+                        self.observedView.alignment = .fill
                     }
-                case .Leading:
+                case .leading:
                     cell.selectedAction = {
                         self.alignmentValueChange(cell)
-                        self.observedView.alignment = .Leading
+                        self.observedView.alignment = .leading
                     }
-                case .FirstBaseline:
+                case .firstBaseline:
                     cell.selectedAction = {
                         self.alignmentValueChange(cell)
-                        self.observedView.alignment = .FirstBaseline
+                        self.observedView.alignment = .firstBaseline
                     }
-                case .Trailing:
+                case .trailing:
                     cell.selectedAction = {
                         self.alignmentValueChange(cell)
-                        self.observedView.alignment = .Trailing
+                        self.observedView.alignment = .trailing
                     }
-                case .LastBaseline:
+                case .lastBaseline:
                     cell.selectedAction = {
                         self.alignmentValueChange(cell)
-                        self.observedView.alignment = .LastBaseline
+                        self.observedView.alignment = .lastBaseline
                     }
                 }
             }
         }
     }
     
-    private func alignmentValueChange(cell: StackCell) {
+    fileprivate func alignmentValueChange(_ cell: StackCell) {
         
         if self.currentSelectedAlignmentCell != cell {
             self.currentSelectedAlignmentCell?.isSelected = false
@@ -144,17 +145,17 @@ class PropertiesViewController: UIViewController {
         }
     }
     
-    private func distributionValueChange(cell: StackCell) {
+    fileprivate func distributionValueChange(_ cell: StackCell) {
         if self.currentSelectedDistributionCell != cell {
             self.currentSelectedDistributionCell?.isSelected = false
             cell.isSelected = true
             self.currentSelectedDistributionCell = cell
         }
     }
-    private func setupDistributionPanel() {
-        let distributionThemes: [StackViewDistribution] = [.Fill, .FillEqually, .FillProportionally, .EqualSpacing, .EqualCentering]
+    fileprivate func setupDistributionPanel() {
+        let distributionThemes: [StackViewDistribution] = [.fill, .fillEqually, .fillProportionally, .equalSpacing, .equalCentering]
         
-        for (index, cell) in distributionPanel.arrangedSubviews.enumerate() {
+        for (index, cell) in distributionPanel.arrangedSubviews.enumerated() {
             
             if cell is StackCell {
                 let cell = cell as! StackCell
@@ -163,30 +164,30 @@ class PropertiesViewController: UIViewController {
                 cell.theme = distribution.rawValue
                
                 switch  distribution {
-                case .Fill:
+                case .fill:
                     cell.selectedAction = {
                         self.distributionValueChange(cell)
-                        self.observedView.alignment = .Fill
+                        self.observedView.alignment = .fill
                     }
-                case .FillEqually:
+                case .fillEqually:
                     cell.selectedAction = {
                         self.distributionValueChange(cell)
-                        self.observedView.distribution = .FillEqually
+                        self.observedView.distribution = .fillEqually
                     }
-                case .FillProportionally:
+                case .fillProportionally:
                     cell.selectedAction = {
                         self.distributionValueChange(cell)
-                        self.observedView.distribution = .FillProportionally
+                        self.observedView.distribution = .fillProportionally
                     }
-                case .EqualSpacing:
+                case .equalSpacing:
                     cell.selectedAction = {
                         self.distributionValueChange(cell)
-                        self.observedView.distribution = .EqualSpacing
+                        self.observedView.distribution = .equalSpacing
                     }
-                case .EqualCentering:
+                case .equalCentering:
                     cell.selectedAction = {
                         self.distributionValueChange(cell)
-                        self.observedView.distribution = .EqualCentering
+                        self.observedView.distribution = .equalCentering
                     }
                 }
                 

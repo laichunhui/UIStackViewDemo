@@ -10,7 +10,7 @@ import UIKit
 
 class BoxueViewController: UIViewController {
 
-    var url: NSURL?
+    var url: URL?
     @IBOutlet weak var webView: UIWebView!
    
     override func viewDidLoad() {
@@ -19,15 +19,15 @@ class BoxueViewController: UIViewController {
         loadWebView()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBar.isHidden = false
     }
 
-    private func loadWebView() {
+    fileprivate func loadWebView() {
         
         if let url = self.url {
-            let request = NSURLRequest(URL: url)
+            let request = URLRequest(url: url)
             self.webView.loadRequest(request)
         }
     }

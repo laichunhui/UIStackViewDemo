@@ -13,14 +13,14 @@ class StackCell: UIView {
     
     lazy var themeLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .Center
-        label.textColor = UIColor.grayColor()
+        label.textAlignment = .center
+        label.textColor = UIColor.gray
         return label
     }()
     
     var isSelected = false {
         didSet {
-            themeLabel.textColor = isSelected ?  UIColor.cyanColor() : UIColor.grayColor()
+            themeLabel.textColor = isSelected ?  UIColor.cyan : UIColor.gray
         }
     }
     
@@ -30,7 +30,7 @@ class StackCell: UIView {
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
         selectedAction?()
     }

@@ -15,12 +15,12 @@ class ViewController: UIViewController {
         
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = true
+        self.navigationController?.navigationBar.isHidden = true
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       
         guard let identifier = segue.identifier else {
             return
@@ -28,8 +28,8 @@ class ViewController: UIViewController {
         
         switch identifier {
         case "boxue":
-           let destination = segue.destinationViewController as! BoxueViewController
-           let url = NSURL(string: "https://www.boxueio.com")
+           let destination = segue.destination as! BoxueViewController
+           let url = URL(string: "https://www.boxueio.com")
            destination.url = url
         default:
             break
